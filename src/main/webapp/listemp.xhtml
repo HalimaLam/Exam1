@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+    <h:outputStylesheet library="webjars" name="bootstrap/5.3.3/css/bootstrap.min.css" />
+
+    <title>Students</title>
+</h:head>
+<h:body>
+    <h1>Student List</h1>
+
+    <h:form>
+        <h:link outcome="addEmployee.xhtml" value="Add Employee" styleClass="btn btn-success" />
+        <h:link outcome="home.xhtml" value="Back to Home" onclick="window.history.back();" styleClass="btn btn-secondary" />
+        <h:dataTable value="#{employeBean.employees}" var="employe"
+                     class="table-custom"
+                     styleClass="table table-striped"
+                     headerClass="table-dark table-center"
+                     rowClasses="text-center, text-center, text-center, text-center"
+                     columnClasses="table-primary,table-danger,table-primary,table-danger,table-primary">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{employe.eid}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{employe.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{employe.email}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Skill</f:facet>
+                #{employe.skills}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Delete" action="#{employeBean.deleteEmployeWithProjects}" class="btn btn-danger" />-->
+            </h:column>
+        </h:dataTable>
+
+    </h:form>
+</h:body>
+
+</html>

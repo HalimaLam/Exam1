@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Add Employee</title>
+</h:head>
+<h:body>
+    <h2>Add Employee</h2>
+    <h:form>
+        <h:messages style="color: red;" />
+        <p>Nom complet :</p>
+        <h:inputText value="#{employeBean.newEmployee.name}" required="true" />
+
+        <p>Skills :</p>
+        <h:selectOneRadio value="#{employeBean.newEmployee.skills}" required="true">
+            <f:selectItem itemValue="Java" itemLabel="Java" />
+            <f:selectItem itemValue="C#" itemLabel="C#" />
+            <f:selectItem itemValue="Python" itemLabel="Python" />
+            <f:selectItem itemValue="JavaScript" itemLabel="JavaScript" />
+        </h:selectOneRadio>
+
+
+
+
+        <p>E-mail :</p>
+        <h:inputText value="#{employeBean.newEmployee.email}" required="true" />
+
+        <p>Project :</p>
+        <h:selectManyCheckbox value="#{employeBean.selectedProjet}">
+            <f:selectItems value="#{employeBean.availableProjet}" />
+        </h:selectManyCheckbox>
+
+        <br/>
+        <br/>
+        <h:commandButton value="S'inscrire" action="#{employeBean.newEmployee.addEmployeWithProject}" />
+    </h:form>
+</h:body>
+</html>
